@@ -7,6 +7,7 @@ const achievements = [
   {
     title: 'Datathon Winner',
     description: 'Contributed to winning a 40,000 SAR Datathon through technical explanation, pitch support, and presentation',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7389774552303738880/',
     icon: Trophy,
     color: 'from-yellow-400 to-orange-500',
     textColor: 'text-yellow-600',
@@ -116,7 +117,18 @@ export function Achievements() {
                     {/* Content */}
                     <div className="flex-1">
                       <h3 className="text-xl font-bold text-slate-900 mb-2">
-                        {achievement.title}
+                        {achievement.link ? (
+                          <a
+                            href={achievement.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-600 hover:underline underline-offset-4"
+                          >
+                            {achievement.title}
+                          </a>
+                        ) : (
+                          achievement.title
+                        )}
                       </h3>
                       <p className="text-slate-600 leading-relaxed">
                         {achievement.description}
