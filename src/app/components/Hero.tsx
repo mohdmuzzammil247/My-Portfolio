@@ -98,7 +98,7 @@ export function Hero() {
           >
             <Button
               size="lg"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="w-64 sm:w-auto justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               onClick={() => scrollToSection('projects')}
             >
               View Projects
@@ -108,7 +108,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-slate-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+              className="w-64 sm:w-auto justify-center border-2 border-slate-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               onClick={() => scrollToSection('contact')}
             >
               <Mail className="mr-2 w-5 h-5" />
@@ -118,7 +118,7 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-slate-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
+              className="w-64 sm:w-auto justify-center border-2 border-slate-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
               asChild
             >
               <a
