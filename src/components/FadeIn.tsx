@@ -22,12 +22,17 @@ export default function FadeIn({
 }: FadeInProps) {
   const MotionTag = useMemo(() => motion.create(as), [as]);
 
+  // Opacity is deliberately not animated: if the viewport-intersection
+  // check ever fails to fire on some device/browser, content must still
+  // be fully visible and readable, not stuck invisible. Only the slide-in
+  // offset is animated, so a failed trigger is a minor cosmetic miss
+  // (content sits slightly offset) rather than missing content.
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: '50px', amount: 0 }}
+      initial={{ x, y }}
+      whileInView={{ x: 0, y: 0 }}
+      viewport={{ once: true, margin: '0px 0px 400px 0px', amount: 0 }}
       transition={{ delay, duration, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {children}
