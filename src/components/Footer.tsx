@@ -1,6 +1,8 @@
-import { Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, FileText } from 'lucide-react';
 import FadeIn from './FadeIn';
 import ContactButton from './ContactButton';
+
+const resumePdf = `${import.meta.env.BASE_URL}Mohd-Muzzammil-Resume.pdf`;
 
 const LINKS = [
   { icon: Mail, label: 'muzzammilmohd247@gmail.com', href: 'mailto:muzzammilmohd247@gmail.com' },
@@ -11,6 +13,7 @@ const LINKS = [
     href: 'https://linkedin.com/in/mohd-muzzammil-82b73333a',
   },
   { icon: Github, label: 'GitHub', href: 'https://github.com/mohdmuzzammil247' },
+  { icon: FileText, label: 'Resume', href: resumePdf },
 ];
 
 export default function Footer() {
@@ -36,8 +39,8 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                target={link.href.startsWith('http') ? '_blank' : undefined}
-                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                target={link.href.startsWith('http') || link.href.endsWith('.pdf') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') || link.href.endsWith('.pdf') ? 'noopener noreferrer' : undefined}
                 className="flex items-center gap-2 text-[#D7E2EA] text-sm uppercase tracking-widest font-light transition-opacity duration-200 hover:opacity-70"
               >
                 <link.icon className="w-4 h-4" strokeWidth={1.5} />

@@ -39,12 +39,12 @@ export default function ProjectCard({ project, index, totalCards }: ProjectCardP
   const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
 
   return (
-    <div ref={containerRef} className="h-[85vh]" style={{ marginBottom: index === totalCards - 1 ? 0 : '4rem' }}>
+    <div ref={containerRef} className="relative h-[130vh]">
       <motion.div
-        style={{ scale, top: `calc(6rem + ${index * 28}px)` }}
-        className="sticky rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6"
+        style={{ scale, top: `calc(5rem + ${index * 20}px)` }}
+        className="sticky h-[72vh] sm:h-[75vh] md:h-[78vh] rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col gap-4 sm:gap-6 overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]"
       >
-        <div className="flex items-start sm:items-center justify-between gap-4 flex-wrap">
+        <div className="flex items-start sm:items-center justify-between gap-4 flex-wrap flex-shrink-0">
           <div className="flex items-center gap-4 sm:gap-6 min-w-0">
             <span
               className="text-[#D7E2EA] font-black leading-none flex-shrink-0"
@@ -79,28 +79,26 @@ export default function ProjectCard({ project, index, totalCards }: ProjectCardP
           )}
         </div>
 
-        <div className="grid grid-cols-[40%_60%] gap-3 flex-1">
-          <div className="flex flex-col gap-3">
+        <div className="grid grid-cols-[40%_60%] gap-3 flex-1 min-h-0">
+          <div className="flex flex-col gap-3 min-h-0">
             <ProjectImagePlaceholder
               icon={project.icon}
               src={project.images?.leftTop}
               alt={`${project.name} preview 1`}
-              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-              style={{ height: 'clamp(130px, 16vw, 230px)' }}
+              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px] flex-[1] min-h-0"
             />
             <ProjectImagePlaceholder
               icon={project.icon}
               src={project.images?.leftBottom}
               alt={`${project.name} preview 2`}
-              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-              style={{ height: 'clamp(160px, 22vw, 340px)' }}
+              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px] flex-[1.5] min-h-0"
             />
           </div>
           <ProjectImagePlaceholder
             icon={project.icon}
             src={project.images?.right}
             alt={`${project.name} preview 3`}
-            className="self-stretch rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
+            className="h-full min-h-0 rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
           />
         </div>
       </motion.div>

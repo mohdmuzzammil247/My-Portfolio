@@ -3,10 +3,13 @@ import Magnet from './Magnet';
 import ContactButton from './ContactButton';
 import DeveloperPortrait from './DeveloperPortrait';
 
+const resumePdf = `${import.meta.env.BASE_URL}Mohd-Muzzammil-Resume.pdf`;
+
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -17,17 +20,27 @@ export default function HeroSection() {
         as="nav"
         delay={0}
         y={-20}
-        className="flex items-center justify-between px-6 md:px-10 pt-6 md:pt-8"
+        className="flex items-center justify-between gap-3 px-6 md:px-10 pt-6 md:pt-8"
       >
-        {NAV_LINKS.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-[#D7E2EA] font-medium uppercase tracking-wider text-sm md:text-lg lg:text-[1.4rem] transition-opacity duration-200 hover:opacity-70"
-          >
-            {link.label}
-          </a>
-        ))}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-6 md:gap-x-8">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-[#D7E2EA] font-medium uppercase tracking-wider text-xs sm:text-sm md:text-base lg:text-lg transition-opacity duration-200 hover:opacity-70"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <a
+          href={resumePdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 inline-flex items-center justify-center rounded-full border-2 border-[#D7E2EA] text-[#D7E2EA] font-medium uppercase tracking-widest text-[10px] sm:text-xs md:text-sm px-3.5 py-1.5 sm:px-5 sm:py-2 transition-colors duration-200 hover:bg-[#D7E2EA]/10"
+        >
+          Resume
+        </a>
       </FadeIn>
 
       <div className="overflow-hidden mt-6 sm:mt-4 md:-mt-5">
