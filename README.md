@@ -1,10 +1,20 @@
+# Mohd Muzzammil — Portfolio
 
-  # Premium Personal Portfolio Website
+3D-creator-style portfolio landing page built with React, TypeScript, Tailwind CSS, and Framer Motion.
 
+## Running locally
 
-  ## Running the code
+```bash
+npm install
+npm run dev
+```
 
-  Run `npm i` to install the dependencies.
+## Build
 
-  Run `npm run dev` to start the development server.
-  
+```bash
+npm run build
+```
+
+## Deploy
+
+Pushing to `main` triggers `.github/workflows/deploy-pages.yml`, which builds and publishes to GitHub Pages automatically.
