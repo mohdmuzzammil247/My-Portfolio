@@ -63,7 +63,12 @@ export default function MarqueeSection() {
       const section = sectionRef.current;
       if (!section) return;
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const raw = (window.scrollY - sectionTop + window.innerHeight) * 0.3;
+      // Multiplier is high because the section itself only spans a small
+      // amount of vertical scroll distance (~700-900px) — a low multiplier
+      // (e.g. the original 0.3) never accumulates enough horizontal offset
+      // to cycle past the first tile in each row before the section has
+      // scrolled out of view, especially on short mobile viewports.
+      const raw = (window.scrollY - sectionTop + window.innerHeight) * 1.2;
       setOffset(raw);
     };
 
