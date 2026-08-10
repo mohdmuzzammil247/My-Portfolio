@@ -11,7 +11,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20"
+      className="min-h-screen-safe relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20"
       style={{ overflowX: 'clip' }}
     >
       <FadeIn

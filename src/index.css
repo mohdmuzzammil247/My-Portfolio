@@ -25,6 +25,45 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/*
+  Mobile browsers (iOS Safari, Android Chrome) compute 100vh against the
+  viewport with the address bar collapsed, so on first load — with the bar
+  visible — the last ~60-100px of any 100vh section sits below the fold.
+  100dvh tracks the *actual* visible viewport; the vh line stays as a
+  fallback for browsers that don't support dvh.
+*/
+.h-screen-safe {
+  height: 100vh;
+  height: 100dvh;
+}
+
+.min-h-screen-safe {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.h-project-track {
+  height: 130vh;
+  height: 130dvh;
+}
+
+.h-project-card {
+  height: 72vh;
+  height: 72dvh;
+}
+@media (min-width: 640px) {
+  .h-project-card {
+    height: 75vh;
+    height: 75dvh;
+  }
+}
+@media (min-width: 768px) {
+  .h-project-card {
+    height: 78vh;
+    height: 78dvh;
+  }
+}
+
 ::selection {
   background: #b600a8;
   color: #ffffff;

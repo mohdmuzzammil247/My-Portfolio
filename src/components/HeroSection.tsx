@@ -15,7 +15,7 @@ const NAV_LINKS = [
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen flex flex-col" style={{ overflowX: 'clip' }}>
+    <section className="h-screen-safe relative flex flex-col" style={{ overflowX: 'clip' }}>
       <FadeIn
         as="nav"
         delay={0}
@@ -68,17 +68,18 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
-      <Magnet
-        padding={150}
-        strength={3}
-        activeTransition="transform 0.3s ease-out"
-        inactiveTransition="transform 0.6s ease-in-out"
-        className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]"
-      >
-        <FadeIn delay={0.6} y={30}>
-          <DeveloperPortrait />
-        </FadeIn>
-      </Magnet>
+      <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]">
+        <Magnet
+          padding={150}
+          strength={3}
+          activeTransition="transform 0.3s ease-out"
+          inactiveTransition="transform 0.6s ease-in-out"
+        >
+          <FadeIn delay={0.6} y={30}>
+            <DeveloperPortrait />
+          </FadeIn>
+        </Magnet>
+      </div>
     </section>
   );
 }
