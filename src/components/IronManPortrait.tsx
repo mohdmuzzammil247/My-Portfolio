@@ -4,22 +4,19 @@ import ironmanSuit from '../assets/hero/ironman-suit.jpg';
 import muzzammilPhoto from '../assets/hero/muzzammil-photo.jpg';
 import arcReactor from '../assets/hero/arc-reactor.jpg';
 
-// Head position measured against the top-cropped (object-position: top)
-// render of ironman-suit.jpg inside a 4/5 aspect card.
-const FACE_X = 47;
-const FACE_Y = 29;
-const FACE_SIZE = 19; // diameter, as a % of the card's own width
-
-// The card is a fixed 4/5 (width/height) box, so a horizontal % has to be
-// rescaled to translate to the same physical radius vertically.
-const ASPECT = 5 / 4;
-const FACE_RX = FACE_SIZE / 2;
-const FACE_RY = FACE_RX / ASPECT;
+// Head+shoulders position measured against the top-cropped
+// (object-position: top) render of ironman-suit.jpg inside a 4/5 aspect
+// card — sized to cover the helmet down through the shoulder pauldrons,
+// not just the face, so the photo reads as a head-and-shoulders bust.
+const FACE_X = 47; // center, % of card width
+const FACE_Y = 36; // center, % of card height
+const FACE_RX = 17; // radius, % of card width
+const FACE_RY = 17; // radius, % of card height
 // The erase-window on the suit is drawn oversized relative to the photo
 // underneath so the two soft edges overlap and blend, instead of the
 // suit's mask-edge and the photo's own edge lining up into a hard ring.
-const ERASE_RX = FACE_RX * 1.7;
-const ERASE_RY = FACE_RY * 1.7;
+const ERASE_RX = FACE_RX * 1.5;
+const ERASE_RY = FACE_RY * 1.5;
 
 export default function IronManPortrait() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -67,8 +64,8 @@ export default function IronManPortrait() {
           style={{
             left: `${FACE_X}%`,
             top: `${FACE_Y}%`,
-            width: `${FACE_SIZE}%`,
-            aspectRatio: '1 / 1',
+            width: `${FACE_RX * 2}%`,
+            height: `${FACE_RY * 2}%`,
             transform: 'translate(-50%, -50%)',
           }}
         >
