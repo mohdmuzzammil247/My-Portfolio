@@ -80,26 +80,40 @@ export default function MarqueeSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#0C0C0C] pt-24 sm:pt-32 md:pt-40 pb-10 flex flex-col gap-3"
-      style={{ overflowX: 'clip' }}
+      className="relative bg-[#0C0C0C] py-8 sm:py-10 flex flex-col gap-2 sm:gap-3"
+      style={{
+        overflowX: 'clip',
+        borderTop: '3px solid #E2451C',
+        borderBottom: '3px solid #E2451C',
+      }}
     >
       <div className="overflow-hidden">
         <div
-          className="flex gap-3"
+          className="flex gap-1.5"
           style={{ willChange: 'transform', transform: `translateX(${offset - 200}px)` }}
         >
           {TRIPLED_ROW_1.map((item, i) => (
-            <TechTile key={`${item.label}-${i}`} label={item.label} icon={item.icon} />
+            <TechTile
+              key={`${item.label}-${i}`}
+              label={item.label}
+              icon={item.icon}
+              variant={i % 2 === 0 ? 'red' : 'dark'}
+            />
           ))}
         </div>
       </div>
       <div className="overflow-hidden">
         <div
-          className="flex gap-3"
+          className="flex gap-1.5"
           style={{ willChange: 'transform', transform: `translateX(${-(offset - 200)}px)` }}
         >
           {TRIPLED_ROW_2.map((item, i) => (
-            <TechTile key={`${item.label}-${i}`} label={item.label} icon={item.icon} />
+            <TechTile
+              key={`${item.label}-${i}`}
+              label={item.label}
+              icon={item.icon}
+              variant={i % 2 === 0 ? 'dark' : 'red'}
+            />
           ))}
         </div>
       </div>

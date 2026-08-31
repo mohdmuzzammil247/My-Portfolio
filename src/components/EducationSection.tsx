@@ -44,7 +44,7 @@ export default function EducationSection() {
           <FadeIn key={item.degree} delay={i * 0.1}>
             <div
               className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-6 py-7 sm:py-8"
-              style={{ borderBottom: '1px solid rgba(215, 226, 234, 0.15)' }}
+              style={{ borderBottom: '1px solid rgba(255, 178, 0, 0.15)' }}
             >
               <div className="flex flex-col gap-1.5 min-w-0">
                 <h3 className="text-[#D7E2EA] font-medium uppercase text-base sm:text-xl md:text-2xl leading-snug">
@@ -55,7 +55,7 @@ export default function EducationSection() {
                   {item.note ? ` · ${item.note}` : ''}
                 </p>
               </div>
-              <span className="flex-shrink-0 text-[#D7E2EA] text-xs sm:text-sm uppercase tracking-widest font-medium border border-[#D7E2EA]/30 rounded-full px-4 py-2 self-start sm:self-auto">
+              <span className="flex-shrink-0 text-[#F0D9A8] text-xs sm:text-sm uppercase tracking-widest font-medium border border-[#FFB200]/30 rounded-full px-4 py-2 self-start sm:self-auto">
                 {item.period}
               </span>
             </div>

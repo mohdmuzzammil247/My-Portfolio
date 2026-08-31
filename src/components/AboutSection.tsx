@@ -1,76 +1,102 @@
-import { Moon, Box, Blocks, Boxes } from 'lucide-react';
+import { Cpu } from 'lucide-react';
 import FadeIn from './FadeIn';
 import AnimatedText from './AnimatedText';
 import ContactButton from './ContactButton';
-import DecorativeIcon from './DecorativeIcon';
+import muzzammilPhoto from '../assets/hero/muzzammil-photo.jpg';
+import arcReactor from '../assets/hero/arc-reactor.jpg';
 
 const ABOUT_TEXT =
   "With more than two years of hands-on experience across full product lifecycles, i focus on react.js, node.js, and building scalable, cloud-ready web applications, i truly enjoy partnering with businesses and stakeholders to turn ideas into production-ready platforms. let's build something incredible together!";
+
+const PRIMARY_STACK = ['React', 'Node.js', 'Java', 'MongoDB', 'MySQL', 'Git'];
 
 export default function AboutSection() {
   return (
     <section
       id="about"
-      className="min-h-screen-safe relative flex flex-col items-center justify-center px-5 sm:px-8 md:px-10 py-20"
+      className="relative bg-white px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-28"
       style={{ overflowX: 'clip' }}
     >
-      <FadeIn
-        delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
-      >
-        <DecorativeIcon icon={Moon} />
-      </FadeIn>
-      <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] w-[100px] sm:w-[140px] md:w-[180px]"
-      >
-        <DecorativeIcon icon={Box} />
-      </FadeIn>
-      <FadeIn
-        delay={0.15}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] w-[120px] sm:w-[160px] md:w-[210px]"
-      >
-        <DecorativeIcon icon={Blocks} />
-      </FadeIn>
-      <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
-        className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]"
-      >
-        <DecorativeIcon icon={Boxes} />
-      </FadeIn>
+      <div
+        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        style={{
+          backgroundImage:
+            'linear-gradient(#0C0C0C 1px, transparent 1px), linear-gradient(90deg, #0C0C0C 1px, transparent 1px)',
+          backgroundSize: '36px 36px',
+        }}
+      />
 
-      <div className="flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
-        <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16">
-          <FadeIn delay={0} y={40}>
+      <div className="relative max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-16">
+        <div className="flex flex-col items-center md:items-start gap-6 md:gap-8 flex-1 min-w-0 text-center md:text-left">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2">
+              <Cpu className="w-4 h-4 text-[#E2451C]" strokeWidth={2} />
+              <span className="text-[#A3121B] text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold">
+                Behind the armor
+              </span>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.08} y={30}>
             <h2
-              className="hero-heading font-black uppercase leading-none tracking-tight text-center"
-              style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
+              className="font-black uppercase leading-[0.95] tracking-tight text-[#0C0C0C] whitespace-nowrap"
+              style={{ fontSize: 'clamp(2.2rem, 5.5vw, 68px)' }}
             >
-              About me
+              Mohd
+              <br />
+              Muzzammil.
             </h2>
           </FadeIn>
 
           <AnimatedText
             text={ABOUT_TEXT}
-            className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[560px]"
-            style={{ fontSize: 'clamp(1rem, 2vw, 1.35rem)' }}
+            className="text-[#3a3a3a] font-medium leading-relaxed max-w-[520px]"
+            style={{ fontSize: 'clamp(1rem, 2vw, 1.2rem)' }}
           />
+
+          <FadeIn delay={0.15} y={20} className="flex flex-col items-center md:items-start gap-3">
+            <span className="text-[#8891a0] text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold">
+              Primary tech stack
+            </span>
+            <div className="flex flex-wrap justify-center md:justify-start gap-2">
+              {PRIMARY_STACK.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-full px-4 py-1.5 text-xs sm:text-sm font-bold uppercase tracking-wide"
+                  style={{
+                    border: '1.5px solid #0C0C0C',
+                    color: '#0C0C0C',
+                  }}
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.25} y={20}>
+            <ContactButton />
+          </FadeIn>
         </div>
 
-        <FadeIn delay={0.2} y={20}>
-          <ContactButton />
+        <FadeIn delay={0.2} x={40} y={0} className="flex-shrink-0">
+          <div className="relative w-[190px] h-[190px] sm:w-[230px] sm:h-[230px] md:w-[260px] md:h-[260px]">
+            <div
+              className="absolute -inset-2 rounded-full"
+              style={{
+                background: 'conic-gradient(from 0deg, #A3121B, #FFB200, #A3121B, #FFB200, #A3121B)',
+              }}
+            />
+            <div className="absolute inset-[6px] rounded-full overflow-hidden border-4 border-white">
+              <img src={muzzammilPhoto} alt="Mohd Muzzammil" className="w-full h-full object-cover" />
+            </div>
+            <div
+              className="absolute -bottom-3 -right-3 w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-white"
+              style={{ boxShadow: '0 0 0 2px #FFB200, 0 4px 16px rgba(0,0,0,0.25)' }}
+            >
+              <img src={arcReactor} alt="" className="w-full h-full object-cover" />
+            </div>
+          </div>
         </FadeIn>
       </div>
     </section>

@@ -57,7 +57,10 @@ export default function AchievementsSection() {
               className="h-full flex items-start gap-5 rounded-3xl p-6 sm:p-7"
               style={{ border: '1px solid rgba(12, 12, 12, 0.12)' }}
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center bg-[#0C0C0C]">
+              <div
+                className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, #A3121B 0%, #FFB200 100%)' }}
+              >
                 <item.icon className="w-5 h-5 text-white" strokeWidth={1.75} />
               </div>
               <div className="flex flex-col gap-2">

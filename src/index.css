@@ -25,6 +25,19 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+.stark-hero {
+  color: #0c0c0c;
+}
+
+.stark-hero-accent {
+  color: #0c0c0c;
+  text-shadow: 0.055em 0.055em 0 #e2451c;
+}
+
+.ticker-chip {
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0% 100%);
+}
+
 /*
   Mobile browsers (iOS Safari, Android Chrome) compute 100vh against the
   viewport with the address bar collapsed, so on first load — with the bar
@@ -65,6 +78,38 @@ body {
 }
 
 ::selection {
-  background: #b600a8;
+  background: #e2451c;
   color: #ffffff;
+}
+
+@keyframes arc-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes skill-swing {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
 }

@@ -3,18 +3,27 @@ import type { LucideIcon } from 'lucide-react';
 interface TechTileProps {
   label: string;
   icon: LucideIcon;
+  variant: 'red' | 'dark';
 }
 
-export default function TechTile({ label, icon: Icon }: TechTileProps) {
+export default function TechTile({ label, icon: Icon, variant }: TechTileProps) {
+  const isRed = variant === 'red';
   return (
     <div
-      className="flex-shrink-0 w-[420px] h-[270px] rounded-2xl flex flex-col items-center justify-center gap-5 border border-white/10"
+      className="ticker-chip flex-shrink-0 h-[64px] sm:h-[76px] flex items-center gap-3 px-8 sm:px-10"
       style={{
-        background: 'linear-gradient(155deg, #17171b 0%, #0c0c0c 100%)',
+        background: isRed
+          ? 'linear-gradient(100deg, #A3121B 0%, #E2451C 100%)'
+          : '#0C0C0C',
+        border: isRed ? 'none' : '1px solid rgba(226, 69, 28, 0.35)',
       }}
     >
-      <Icon className="w-14 h-14 text-[#BBCCD7]" strokeWidth={1.25} />
-      <span className="text-[#D7E2EA] font-medium uppercase tracking-wider text-xl">
+      <Icon className={isRed ? 'w-5 h-5 text-white' : 'w-5 h-5 text-[#FFB200]'} strokeWidth={1.75} />
+      <span
+        className={`font-bold uppercase tracking-wider text-sm sm:text-lg whitespace-nowrap ${
+          isRed ? 'text-white' : 'text-[#F0D9A8]'
+        }`}
+      >
         {label}
       </span>
     </div>
