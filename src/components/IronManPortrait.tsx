@@ -1,7 +1,7 @@
 import { useRef, useState, type MouseEvent } from 'react';
 import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 import ironmanSuit from '../assets/hero/ironman-suit.jpg';
-import muzzammilPhoto from '../assets/hero/muzzammil-photo.jpg';
+import muzzammilCutout from '../assets/hero/muzzammil-cutout.png';
 import arcReactor from '../assets/hero/arc-reactor.jpg';
 
 // Head+shoulders position measured against the top-cropped
@@ -60,7 +60,7 @@ export default function IronManPortrait() {
           }}
         />
         <div
-          className="absolute overflow-hidden rounded-full"
+          className="absolute"
           style={{
             left: `${FACE_X}%`,
             top: `${FACE_Y}%`,
@@ -70,13 +70,9 @@ export default function IronManPortrait() {
           }}
         >
           <img
-            src={muzzammilPhoto}
+            src={muzzammilCutout}
             alt="Mohd Muzzammil"
-            className="w-full h-full object-cover"
-            style={{
-              maskImage: 'radial-gradient(50% 50% at 50% 50%, black 62%, transparent 100%)',
-              WebkitMaskImage: 'radial-gradient(50% 50% at 50% 50%, black 62%, transparent 100%)',
-            }}
+            className="w-full h-full object-contain"
           />
         </div>
 
