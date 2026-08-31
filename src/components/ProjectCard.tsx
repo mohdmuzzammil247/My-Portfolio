@@ -15,11 +15,7 @@ export interface Project {
   name: string;
   icon: LucideIcon;
   links?: ProjectLink[];
-  images?: {
-    leftTop: string;
-    leftBottom: string;
-    right: string;
-  };
+  image?: string;
 }
 
 interface ProjectCardProps {
@@ -79,28 +75,12 @@ export default function ProjectCard({ project, index, totalCards }: ProjectCardP
           )}
         </div>
 
-        <div className="grid grid-cols-[40%_60%] gap-3 flex-1 min-h-0">
-          <div className="flex flex-col gap-3 min-h-0">
-            <ProjectImagePlaceholder
-              icon={project.icon}
-              src={project.images?.leftTop}
-              alt={`${project.name} preview 1`}
-              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px] flex-[1] min-h-0"
-            />
-            <ProjectImagePlaceholder
-              icon={project.icon}
-              src={project.images?.leftBottom}
-              alt={`${project.name} preview 2`}
-              className="rounded-[40px] sm:rounded-[50px] md:rounded-[60px] flex-[1.5] min-h-0"
-            />
-          </div>
-          <ProjectImagePlaceholder
-            icon={project.icon}
-            src={project.images?.right}
-            alt={`${project.name} preview 3`}
-            className="h-full min-h-0 rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
-          />
-        </div>
+        <ProjectImagePlaceholder
+          icon={project.icon}
+          src={project.image}
+          alt={`${project.name} preview`}
+          className="flex-1 min-h-0 rounded-[40px] sm:rounded-[50px] md:rounded-[60px]"
+        />
       </motion.div>
     </div>
   );

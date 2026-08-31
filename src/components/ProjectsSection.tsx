@@ -4,10 +4,6 @@ import ProjectCard, { type Project } from './ProjectCard';
 import ironmanSuit from '../assets/hero/ironman-suit.jpg';
 
 import karamaOg from '../assets/projects/karama-og.jpg';
-import karamaMedtech from '../assets/projects/karama-medtech.webp';
-import karamaSfda from '../assets/projects/karama-sfda.jpg';
-import iwashIcon from '../assets/projects/iwash-icon.png';
-import iwashShot1 from '../assets/projects/iwash-shot1.png';
 import iwashShot2 from '../assets/projects/iwash-shot2.png';
 
 const PROJECTS: Project[] = [
@@ -17,11 +13,7 @@ const PROJECTS: Project[] = [
     name: 'KaRama VS Website',
     icon: Globe,
     links: [{ label: 'Live Project', href: 'https://www.karamavs.com' }],
-    images: {
-      leftTop: karamaMedtech,
-      leftBottom: karamaSfda,
-      right: karamaOg,
-    },
+    image: karamaOg,
   },
   {
     number: '02',
@@ -33,11 +25,7 @@ const PROJECTS: Project[] = [
       { label: 'Business App', href: 'https://play.google.com/store/apps/details?id=com.iwashbusiness' },
       { label: 'iWash App', href: 'https://play.google.com/store/apps/details?id=com.iwash' },
     ],
-    images: {
-      leftTop: iwashIcon,
-      leftBottom: iwashShot1,
-      right: iwashShot2,
-    },
+    image: iwashShot2,
   },
   {
     number: '03',
