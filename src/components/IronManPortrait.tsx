@@ -8,7 +8,18 @@ import arcReactor from '../assets/hero/arc-reactor.jpg';
 // render of ironman-suit.jpg inside a 4/5 aspect card.
 const FACE_X = 47;
 const FACE_Y = 29;
-const FACE_SIZE = 19;
+const FACE_SIZE = 19; // diameter, as a % of the card's own width
+
+// The card is a fixed 4/5 (width/height) box, so a horizontal % has to be
+// rescaled to translate to the same physical radius vertically.
+const ASPECT = 5 / 4;
+const FACE_RX = FACE_SIZE / 2;
+const FACE_RY = FACE_RX / ASPECT;
+// The erase-window on the suit is drawn oversized relative to the photo
+// underneath so the two soft edges overlap and blend, instead of the
+// suit's mask-edge and the photo's own edge lining up into a hard ring.
+const ERASE_RX = FACE_RX * 1.7;
+const ERASE_RY = FACE_RY * 1.7;
 
 export default function IronManPortrait() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,7 +29,7 @@ export default function IronManPortrait() {
   const my = useMotionValue(FACE_Y);
   const springX = useSpring(mx, { stiffness: 260, damping: 32, mass: 0.4 });
   const springY = useSpring(my, { stiffness: 260, damping: 32, mass: 0.4 });
-  const maskImage = useMotionTemplate`radial-gradient(circle 90px at ${springX}% ${springY}%, transparent 0%, transparent 55%, black 88%)`;
+  const maskImage = useMotionTemplate`radial-gradient(ellipse ${ERASE_RX}% ${ERASE_RY}% at ${springX}% ${springY}%, transparent 0%, transparent 55%, black 100%)`;
 
   const handleMove = (e: MouseEvent<HTMLDivElement>) => {
     const rect = containerRef.current?.getBoundingClientRect();
@@ -36,7 +47,7 @@ export default function IronManPortrait() {
         onMouseLeave={() => setHovering(false)}
         className="relative w-full aspect-[4/5] rounded-[40px] overflow-hidden border border-[#E2451C]/25"
       >
-        {/* Under-layer: the face reveal */}
+        {/* Under-layer: the face, hidden beneath the suit until erased */}
         <div
           className="absolute inset-0"
           style={{
@@ -59,14 +70,16 @@ export default function IronManPortrait() {
             width: `${FACE_SIZE}%`,
             aspectRatio: '1 / 1',
             transform: 'translate(-50%, -50%)',
-            border: '2px solid #FFB200',
-            boxShadow: '0 0 30px 6px rgba(255,178,0,0.35)',
           }}
         >
           <img
             src={muzzammilPhoto}
             alt="Mohd Muzzammil"
             className="w-full h-full object-cover"
+            style={{
+              maskImage: 'radial-gradient(50% 50% at 50% 50%, black 62%, transparent 100%)',
+              WebkitMaskImage: 'radial-gradient(50% 50% at 50% 50%, black 62%, transparent 100%)',
+            }}
           />
         </div>
 
