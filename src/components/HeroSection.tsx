@@ -33,7 +33,7 @@ export default function HeroSection() {
             <Cpu className="w-4 h-4 text-white" strokeWidth={2} />
           </div>
           <span className="hidden sm:inline text-[#0C0C0C] font-bold uppercase tracking-widest text-sm">
-            Stark Portfolio
+            MujuZ Portfolio
           </span>
         </div>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 sm:gap-x-6 md:gap-x-8">
