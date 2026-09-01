@@ -16,7 +16,7 @@ const NAV_LINKS = [
 export default function HeroSection() {
   return (
     <section
-      className="h-screen-safe relative flex flex-col bg-[#F4EFE3]"
+      className="min-h-screen-safe relative flex flex-col bg-[#F4EFE3]"
       style={{ overflowX: 'clip' }}
     >
       <FadeIn
@@ -77,6 +77,21 @@ export default function HeroSection() {
         </FadeIn>
       </div>
 
+      <div className="flex justify-center py-8 sm:py-10 md:py-12">
+        <div className="w-[220px] sm:w-[280px] md:w-[340px] lg:w-[380px]">
+          <Magnet
+            padding={150}
+            strength={3}
+            activeTransition="transform 0.3s ease-out"
+            inactiveTransition="transform 0.6s ease-in-out"
+          >
+            <FadeIn delay={0.6} y={30}>
+              <IronManPortrait />
+            </FadeIn>
+          </Magnet>
+        </div>
+      </div>
+
       <div className="flex-1" />
 
       <div className="flex justify-between items-end px-6 md:px-10 pb-7 sm:pb-8 md:pb-10">
@@ -101,19 +116,6 @@ export default function HeroSection() {
             <ContactButton />
           </span>
         </FadeIn>
-      </div>
-
-      <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 z-10 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[500px]">
-        <Magnet
-          padding={150}
-          strength={3}
-          activeTransition="transform 0.3s ease-out"
-          inactiveTransition="transform 0.6s ease-in-out"
-        >
-          <FadeIn delay={0.6} y={30}>
-            <IronManPortrait />
-          </FadeIn>
-        </Magnet>
       </div>
     </section>
   );
