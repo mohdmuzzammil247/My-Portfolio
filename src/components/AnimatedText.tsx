@@ -14,19 +14,35 @@ export default function AnimatedText({ text, className, style }: AnimatedTextPro
     offset: ['start 0.8', 'end 0.2'],
   });
 
-  const characters = text.split('');
+  const total = text.length;
+  // Group into words vs. whitespace so line-wraps only ever land between
+  // words. Each character below renders as its own inline-block span (for
+  // the per-character reveal), and browsers are free to break a line
+  // between any two inline-block boxes — without this grouping, that
+  // means mid-word breaks. Wrapping each word's characters in a single
+  // nowrap inline-block keeps the word atomic while leaving the actual
+  // whitespace between words as normal, breakable text.
+  const tokens = text.match(/\S+|\s+/g) ?? [];
+  let index = 0;
 
   return (
     <p ref={ref} className={className} style={style}>
-      {characters.map((char, i) => (
-        <Char
-          key={i}
-          char={char}
-          progress={scrollYProgress}
-          start={i / characters.length}
-          end={(i + 1) / characters.length}
-        />
-      ))}
+      {tokens.map((token, tokenIndex) => {
+        const chars = token.split('').map((char) => {
+          const i = index++;
+          return (
+            <Char key={i} char={char} progress={scrollYProgress} start={i / total} end={(i + 1) / total} />
+          );
+        });
+        const isWord = !/\s/.test(token);
+        return isWord ? (
+          <span key={tokenIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+            {chars}
+          </span>
+        ) : (
+          chars
+        );
+      })}
     </p>
   );
 }
